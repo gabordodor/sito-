@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gelateria Delizia</title>
+  <style>
+    /* Reset di base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    @media (max-width: 600px) {
+  #sidebar {
+    width: 120px;
+    padding: 5px;
+  }
+  
+  #sidebar:hover {
+    width: 150px;
+  }
+
+  #content {
+    padding: 10px;
+  }
+  #indicazioni img {
+content: url(bho.png);
+width: 100%;
+  height: auto;
+  }
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+    }
+    
+    /* Barra Laterale centrata verticalmente e animata */
+    #sidebar {
+      width: 150px;
+      background-color: #ffcbdb;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      height: 100vh;
+      justify-content: center;
+      animation: slideIn 1s ease-out;
+      transition: width 0.3s ease;
+    }
+    
+    #sidebar:hover {
+      width: 200px;
+    }
+    
+    #sidebar button {
+      background-color: #ff8fa3;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    #sidebar button:hover {
+      background-color: #ff6f85;
+      transform: scale(1.05);
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    /* Area principale */
+    #content {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    .content-section {
+      display: none;
+    }
+    
+    .active {
+      display: block;
+    }
+    
+    /* Sezione Menu migliorata */
+    #menu {
+      background: linear-gradient(135deg, #ffffff, #ffeef0);
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 800px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    #menu h1 {
+      font-size: 2em;
+      text-align: center;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+    
+    #menu ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    #menu ul li {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    
+    #menu ul li:hover {
+      color: #d6336c;
+    }
+    
+    .prezzi {
+      border-top: 1px solid #ccc;
+      padding-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .prezzi p {
+      margin: 8px 0;
+      font-size: 1.1em;
+      color: #333;
+    }
+    
+    /* Sezione Indicazioni */
+    #indicazioni {
+      text-align: center;
+    }
+    
+    #indicazioni h1 {
+      font-size: 2em;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+    
+    #indicazioni p {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      color: #555;
+    }
+    
+    #indicazioni a img {
+      max-width: 100%;
+      border: 3px solid #ff8fa3;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    
+    #indicazioni a img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Sezione Foto */
+    #foto h1 {
+      text-align: center;
+      font-size: 2em;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+    
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+    
+    .foto-slot {
+      background-color: #ffe9f0;
+      border: 2px dashed #ff8fa3;
+      border-radius: 8px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #555;
+      transition: background-color 0.3s;
+    }
+    
+    .foto-slot:hover {
+      background-color: #ffd7e1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra laterale -->
+  <div id="sidebar">
+    <button onclick="showSection('menu')">Menu</button>
+    <button onclick="showSection('indicazioni')">Indicazioni</button>
+    <button onclick="showSection('foto')">Foto</button>
+  </div>
+  
+  <!-- Contenuto principale -->
+  <div id="content">
+    <!-- Sezione Menu: Pagina abbellite -->
+    <div id="menu" class="content-section active">
+      <h1>Il Nostro Menu</h1>
+      <ul>
+        <!-- Aggiungi qui gli elementi del menu -->
+
+      </ul>
+      <div class="prezzi">
+        <p>Gelato Classico: €2,50</p>
+        <p>Gelato alla Frutta: €3,00</p>
+        <p>Granita Siciliana: €2,80</p>
+      </div>
+    </div>
+    
+    <!-- Sezione Indicazioni: immagine cliccabile -->
+    <div id="indicazioni" class="content-section">
+      <h1>Indicazioni</h1>
+      <p>Clicca sull'immagine per avere le indicazioni:</p>
+      <a href="https://www.google.com/maps/place/Eiscaf%C3%A9+Venezia+-+D%C3%B6beln/@51.1205063,13.1179689,17z/data=!4m6!3m5!1s0x47a771e75d5174e9:0x34939d2895b81b59!8m2!3d51.12054!4d13.1197821!16s%2Fg%2F1tdbpx8h?entry=ttu&g_ep=EgoyMDI1MDYwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+        <img src="mapp.png" height="400px" alt="Indicazioni per la gelateria" id="indicazioni-img">
+      </a>
+    </div>
+    
+    <!-- Sezione Foto: 10 slot per immagini -->
+    <div id="foto" class="content-section">
+      <h1>Foto della Gelateria</h1>
+      <div class="foto-grid">
+        <div class="foto-slot">Slot 1</div>
+        <div class="foto-slot">Slot 2</div>
+        <div class="foto-slot">Slot 3</div>
+        <div class="foto-slot">Slot 4</div>
+        <div class="foto-slot">Slot 5</div>
+        <div class="foto-slot">Slot 6</div>
+        <div class="foto-slot">Slot 7</div>
+        <div class="foto-slot">Slot 8</div>
+        <div class="foto-slot">Slot 9</div>
+        <div class="foto-slot">Slot 10</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Script per la gestione della visualizzazione delle sezioni -->
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
